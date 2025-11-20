@@ -1,0 +1,1 @@
+Notes and source code following Martin Fowler's Refactoring (Ruby Edition) book
