@@ -1,4 +1,5 @@
-# Chapter 1. Decomposing and Redistributing the Statement Method
+# Chapter 1. Replacing the Conditional Logic on Price Code with Polymorphism
+
 
 class Movie
   REGULAR = 0
@@ -11,6 +12,26 @@ class Movie
   def initialize(title, price_code)
     @title, @price_code = title, price_code
   end
+  
+  def charge
+    result = 0
+    case price_code
+    when REGULAR
+      result += 2
+      result += (days_rented - 2) * 1.5 if days_rented > 2
+    when NEW_RELEASE
+      result += days_rented * 3
+    when CHILDRENS
+      result += 1.5
+      result += (days_rented - 3) * 1.5 if days_rented > 3
+    end
+    result
+  end
+
+  def frequent_renter_points
+    # add bonus for a two day new release rental
+    (price_code == NEW_RELEASE && days_rented > 1) ? 2 : 1
+  end
 end
 
 
@@ -22,23 +43,11 @@ class Rental
   end
 
   def charge
-    result = 0
-    case movie.price_code
-    when Movie::REGULAR
-      result += 2
-      result += (days_rented - 2) * 1.5 if days_rented > 2
-    when Movie::NEW_RELEASE
-      result += days_rented * 3
-    when Movie::CHILDRENS
-      result += 1.5
-      result += (days_rented - 3) * 1.5 if days_rented > 3
-    end
-    result
+    movie.charge(days_rented)
   end
 
   def frequent_renter_points
-    # add bonus for a two day new release rental
-    (movie.price_code == Movie.NEW_RELEASE && days_rented > 1) ? 2 : 1
+    movie.frequent_renter_points(days_rented)
   end
 end
 
