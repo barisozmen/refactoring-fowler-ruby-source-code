@@ -1,0 +1,90 @@
+# Git
+.git/
+
+# Ruby LSP
+.ruby-lsp/
+
+# VSCode
+.vscode/
+
+# RubyMine / JetBrains IDEs
+.idea/
+*.iml
+
+# Bundler
+.bundle/
+vendor/bundle/
+
+# RVM / rbenv
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Compiled files
+*.gem
+*.rbc
+*.class
+*.log
+
+# Coverage reports
+coverage/
+*.cover
+.hypothesis/
+.coverage
+.cache
+
+# RSpec
+spec/reports/
+spec/examples.txt
+
+# Yard documentation
+.yardoc/
+doc/
+_yardoc/
+
+# Test artifacts
+test/tmp/
+test/version_tmp/
+tmp/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Linux
+*~
+.nfs*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+# OS generated files
+.Spotlight-V100
+.Trashes
